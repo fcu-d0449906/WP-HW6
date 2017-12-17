@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>WP-HW6</title>
+		<meta charset="utf-8">
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	</head>
+	<body>
+		<h4>請選擇學院</h4>
+		<select id="college">
+		</select>
+		<h4>請選擇科系</h4>
+		<select id="department">
+		</select>
+		<script>
+			var colleges = ["商學院", "工學院", "建設學院", "金融學院", "資電學院", "人文社會學院", "理學院"];
+			var business = ["會計學系", "財稅系", "統計學系", "經濟學系", "企業管理學系"];
+			var Engineer = ["化學工程學系", "航太與系統工程學系", "機械與電腦輔助工程學系", "纖維與複合材料學系", "工業工程與系統管理學系"];
+			var Construction = ["土木工程學系", "土地館理學系", "運輸與物流學系", "都市計畫與空間資訊學系", "水利工程與資源保育學系"];
+			var Finance = ["風險管理與保險學系", "財務金融學系"];
+			var Information = ["資訊工程學系", "電機工程學系", "通訊工程學系", "自動控制工程學系", "電子工程學系"];
+			var Social = ["中國文學系", "外國語文學系"];
+			var Sciences = ["應用數學系", "環境工程與科學學系", "材料科學與工程學系", "光電學系"];
+			var departments = [];
+			
+			for(var i=0;i<colleges.length;i++){
+				$("#college").append("<option value=" + i + ">" + colleges[i] + "</option>");
+			}
+			
+			for(var i=0;i<(business.length);i++){
+				$("#department").append("<option value=" + i + ">"+business[i] + "</option>");
+			}
+			
+			$("#college").change(function(){
+					$("#department").empty();
+					var x = $("#college").val();
+					switch(x){
+						case "0":
+							for(var i=0;i<(business.length);i++){
+								$("#department").append("<option value="+i+">"+business[i]+"</option>");
+							}
+							break;
+						case "1":
+							for(var i=0;i<(Engineer.length);i++){
+								$("#department").append("<option value="+i+">"+Engineer[i]+"</option>");
+							}
+							break;
+						case "2":
+							for(var i=0;i<(Construction.length);i++){
+								$("#department").append("<option value="+i+">"+Construction[i]+"</option>");
+							}
+							break;
+						case "3":
+							for(var i=0;i<(Finance.length);i++){
+								$("#department").append("<option value="+i+">"+Finance[i]+"</option>");
+							}
+							break;
+						case "4":
+							for(var i=0;i<(Information.length);i++){
+								$("#department").append("<option value="+i+">"+Information[i]+"</option>");
+							}
+							break;
+						case "5":
+							for(var i=0;i<(Social.length);i++){
+								$("#department").append("<option value="+i+">"+Social[i]+"</option>");
+							}
+							break;
+						case "6":
+							for(var i=0;i<(Sciences.length);i++){
+								$("#department").append("<option value="+i+">"+Sciences[i]+"</option>");
+							}
+							break;
+						default:
+							console.log("Not Accrpt!");
+					}
+					
+					
+				}
+			)
+		</script>
+	</body>
+</html> 
